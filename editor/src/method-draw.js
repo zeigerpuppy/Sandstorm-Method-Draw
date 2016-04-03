@@ -35,7 +35,7 @@
       imgPath: 'images/',
       extPath: 'extensions/',
       jGraduatePath: 'lib/jgraduate/images/',
-      extensions: [],
+      extensions: ['ext-server_opensave.js'],
       initTool: 'select',
       wireframe: false,
       colorPickerCSS: false,

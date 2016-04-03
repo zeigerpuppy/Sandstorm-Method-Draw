@@ -33,12 +33,18 @@ if($suffix == '.svg') {
   $contents = base64_decode(substr($contents, $pos));
 }
 
- header("Cache-Control: public");
- header("Content-Description: File Transfer");
- header("Content-Disposition: attachment; filename=" . $file);
- header("Content-Type: " .  $mime);
- header("Content-Transfer-Encoding: binary");
+// commented out to enable save to server
+// header("Cache-Control: public");
+// header("Content-Description: File Transfer");
+// header("Content-Disposition: attachment; filename=" . $file);
+// header("Content-Type: " .  $mime);
+// header("Content-Transfer-Encoding: binary");
  
- echo $contents;
+// echo $contents;
  
+// added for save to server, see - http://binoyav.blogspot.com.au/2011/11/svg-edit-saving-files-to-server.html
+define('DIR_PATH', '/var/svg_save/');
+$fp = fopen(DIR_PATH . $file, 'w+');
+fwrite($fp, $contents);
+fclose($fp);
 ?>
